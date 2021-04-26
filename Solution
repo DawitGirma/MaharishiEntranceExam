@@ -1,1 +1,84 @@
+#1
+public static int largestAdjacentSum(int[] a){
+        int max = Integer.MIN_VALUE;
+        for(int i=0;i<a.length-1;i++){
+            if(a[i] + a[i+1] > max){
+                max = a[i] + a[i+1];
+            }
+        }      
+    return max;
+}
 
+#2
+static int checkConcatenatedSum(int n, int catlen){
+        int originalNumber = n;
+        int totalSum = 0;
+        while(n!=0){
+            int digit = n%10;
+            int concatSum = 0;
+            for(int i=0;i<catlen;i++){
+                concatSum = (concatSum *10) + digit;
+            }
+            totalSum += concatSum;
+            n = n/10;
+        }
+        return  originalNumber == totalSum ? 1 : 0;
+}
+    
+# from Kahiii 1
+static int equivalenArrays(int [] a1,int []a2){
+        Map<Integer,Integer> mapOne = new HashMap<>();
+        Map<Integer,Integer> mapTwo = new HashMap<>();
+        
+        for(int i =0;i<a1.length;i++){
+            if(!mapOne.containsKey(a1[i])) mapOne.put(a1[i], 1);
+            else mapOne.put(a1[i], mapOne.get(a1[i]) + 1);
+        }
+        for(int i =0;i<a2.length;i++){
+            if(!mapTwo.containsKey(a2[i])) mapTwo.put(a2[i], 1);
+            else mapTwo.put(a2[i], mapTwo.get(a2[i]) + 1);
+        }
+        for(Map.Entry<Integer,Integer> entry : mapOne.entrySet()){
+            if(!mapTwo.containsKey(entry.getKey())) return 0;
+        }
+        for(Map.Entry<Integer,Integer> entry : mapTwo.entrySet()){
+            if(!mapOne.containsKey(entry.getKey())) return 0;
+        } 
+        return 1;
+}
+
+# from Kahiii 2
+public static int hasSingleMaximum(int [] arr){
+        if(arr.length == 0 ) return 0;
+        int max = arr[0];
+        boolean duplicated = false;
+        for(int i=1;i<arr.length;i++){
+            if(arr[i] > max){
+                max = arr[i];
+                duplicated = false;
+            }
+            else if(arr[i] == max){
+                duplicated = true;
+            }            
+        }
+        if(duplicated) return 0;
+        return 1;
+}
+
+# from kahiii 3
+public static int is235Array(int [] arr){
+        int total = 0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i] % 2 == 0) total += 1;
+            if(arr[i] % 3 == 0) total += 1;
+            if(arr[i] % 5 == 0) total += 1;
+            if(arr[i] % 2 != 0 && arr[i] % 3 != 0 && arr[i] % 5 != 0) total += 1; 
+        }
+        return total == arr.length ? 1 : 0;
+ }
+    
+    
+    
+    
+    
+    
