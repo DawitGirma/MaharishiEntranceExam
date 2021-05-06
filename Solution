@@ -91,9 +91,7 @@ public static int is235Array(int [] arr){
                     }
                 }
                 if(isPrime) return number;
-            }
-            
-            
+            }           
             number--;
         }
         return 0;
