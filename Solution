@@ -130,6 +130,18 @@ static void doIntegerBasedRounding(int[] a, int n){
         }
 }
 
+#10
+static int isCubePowerful(int n){
+        if(n<=0) return 0;
+        int originalNum = n;
+        int totalSum = 0;
+        while(n!=0){
+            int digit = n%10;
+            totalSum += digit * digit * digit;
+            n = n/10;
+        }
+        return originalNum == totalSum ? 1 : 0;
+}
     
     
     
