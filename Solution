@@ -143,7 +143,16 @@ static int isCubePowerful(int n){
         return originalNum == totalSum ? 1 : 0;
 }
     
-    
+#11
+static int decodeArray(int [] array){
+        int encodedNum = 0;
+        for(int i=0;i<array.length-1;i++){
+            int digit = Math.abs(array[i] - array[i+1]);
+            encodedNum = encodedNum*10 + digit;
+        }
+        if(array[0] < 0) return encodedNum * -1;
+        return encodedNum;
+}    
     
     
     
